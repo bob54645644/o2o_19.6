@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bob.dao.AreaDao">
+    <insert id="insertArea" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into
+        tb_area
+        (area_name,priority,create_time,last_edit_time)
+        values
+        (#{areaName},#{priority},#{createTime},#{lastEditTime})
+    </insert>
+    <delete id="deleteArea" parameterType="int">
+        delete from
+        tb_area
+        where
+        id = #{id}
+    </delete>
+    <delete id="batchDeleteArea" parameterType="int">
+        delete from
+        tb_area
+        where id in
+        <foreach collection="list" item="areaId" open="(" separator="," close=")">
+            #{areaId}
+        </foreach>
+    </delete>
+    <update id="updateArea" parameterType="com.bob.entity.Area">
+        update
+        tb_area
+        <set>
+            <if test="areaName != null">area_name = #{areaName},</if>
+            <if test="priority != null">priority = #{priority},</if>
+            <if test="lastEditTime != null">last_edit_time = #{lastEditTime}</if>
+        </set>
+        where id=#{id}
+    </update>
+    <select id="queryArea" resultType="com.bob.entity.Area">
+        select id,area_name,priority,create_time,last_edit_time
+        from tb_area
+        order by priority
+        desc
+    </select>
+</mapper>
