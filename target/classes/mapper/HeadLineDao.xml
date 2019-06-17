@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bob.dao.HeadLineDao">
+    <insert id="insertHeadLine" useGeneratedKeys="true"
+            keyColumn="id" keyProperty="id">
+        insert into
+        tb_head_line
+        (name, image, link, priority, enable_status, create_time, last_edit_time)
+        values
+        (#{name},#{image},#{link},#{priority},#{enableStatus},#{createTime},#{lastEditTime})
+    </insert>
+    <delete id="deleteHeadLine" parameterType="int">
+        delete from tb_head_line
+        where id = #{headLineId}
+    </delete>
+    <delete id="batchDeleteHeadLine" parameterType="int">
+        delete from tb_head_line
+        where id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <update id="updateHeadLine">
+        update tb_head_line
+        <set>
+            <if test="name !=null">name = #{name},</if>
+            <if test="image !=null">image = #{image},</if>
+            <if test="link !=null">link = #{link},</if>
+            <if test="priority !=null">priority = #{priority},</if>
+            <if test="enableStatus !=null">enable_status = #{enableStatus},</if>
+            <if test="lastEditTime !=null">last_edit_time = #{lastEditTime}</if>
+        </set>
+        where id = #{id}
+    </update>
+    <select id="queryHeadLineById" parameterType="int" resultType="com.bob.entity.HeadLine">
+        select
+        id, name, image, link, priority, enable_status, create_time, last_edit_time
+        from tb_head_line
+        where id = #{headLineId}
+    </select>
+    <select id="queryHeadLineByIds" parameterType="int" resultType="com.bob.entity.HeadLine">
+        select
+        id, name, image, link, priority, enable_status, create_time, last_edit_time
+        from tb_head_line
+        where id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
+    <select id="queryHeadLine" resultType="com.bob.entity.HeadLine">
+        select
+        id, name, image, link, priority, enable_status, create_time, last_edit_time
+        from tb_head_line
+        <where>
+            <if test="name !=null">and name = #{name}</if>
+            <if test="image !=null">and image = #{image}</if>
+            <if test="link !=null">and link = #{link}</if>
+            <if test="priority !=null">and priority = #{priority}</if>
+            <if test="enableStatus !=null">and enable_status = #{enableStatus}</if>
+        </where>
+    </select>
+</mapper>

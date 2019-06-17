@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bob.dao.ShopDao">
+    <resultMap id="shopDaoResultMap" type="com.bob.entity.Shop">
+        <id column="s_id" property="id"/>
+        <result column="s_name" property="name"/>
+        <result column="image" property="image"/>
+        <result column="describe" property="describe"/>
+        <result column="addr" property="addr"/>
+        <result column="phone" property="phone"/>
+        <result column="priority" property="priority"/>
+        <result column="enable_status" property="enableStatus"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_edit_time" property="lastEditTime"/>
+        <association property="area" column="area_id"
+                     javaType="com.bob.entity.Area">
+            <id column="a_id" property="id"/>
+            <result column="area_name" property="areaName"/>
+        </association>
+        <association property="shopCategory" column="shop_category_id"
+                     javaType="com.bob.entity.ShopCategory">
+            <id column="sc_id" property="id"/>
+            <result column="sc_name" property="name"/>
+        </association>
+        <association property="owner" column="person_id"
+                     javaType="com.bob.entity.PersonInfo">
+            <id column="pi_id" property="id"/>
+            <result column="pi_name" property="name"/>
+        </association>
+    </resultMap>
+    <insert id="insertShop" useGeneratedKeys="true"
+            keyColumn="id" keyProperty="id">
+        insert into
+        tb_shop
+        (name, image, `describe`, addr, phone, area_id, shop_category_id, person_id, priority, enable_status, create_time, last_edit_time)
+        values
+        (#{name},#{image},#{describe},#{addr},#{phone},#{area.id},#{shopCategory.id},#{owner.id},#{priority},#{enableStatus},#{createTime},#{lastEditTime})
+    </insert>
+    <update id="updateShop">
+        update tb_shop
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="image !=null">image = #{image},</if>
+            <if test="describe !=null">`describe` = #{describe},</if>
+            <if test="addr !=null">addr = #{addr},</if>
+            <if test="phone !=null">phone = #{phone},</if>
+            <if test="area !=null and area.id !=null">area_id =#{area.id},</if>
+            <if test="shopCategory !=null and shopCategory.id !=null">shop_category_id = #{shopCategory.id},</if>
+            <if test="owner !=null and owner.id !=null">person_id = #{owner.id},</if>
+            <if test="priority !=null">priority = #{priority},</if>
+            <if test="enableStatus !=null">enable_status = #{enableStatus},</if>
+            <if test="lastEditTime !=null">last_edit_time = #{lastEditTime}</if>
+        </set>
+        where id = #{id}
+    </update>
+    <select id="queryShopById" parameterType="int" resultMap="shopDaoResultMap">
+        select
+        s.id as s_id,
+        s.name as s_name,
+        s.image,
+        s.`describe`,
+        s.addr,
+        s.phone,
+        s.area_id,
+        s.shop_category_id,
+        s.person_id,
+        s.priority,
+        s.enable_status,
+        s.create_time,
+        s.last_edit_time,
+        a.id as a_id,
+        a.area_name ,
+        sc.id as sc_id,
+        sc.name as sc_name,
+        pi.id as pi_id,
+        pi.name as pi_name
+        from
+        tb_shop s,
+        tb_area a,
+        tb_shop_category sc,
+        tb_person_info pi
+        where
+        s.id = #{shopId}
+        and s.area_id = a.id
+        and s.shop_category_id = sc.id
+        and s.person_id = pi.id
+    </select>
+    <!--通过 area，shopCategory，shopName，enableStatus，ownerId搜索-->
+    <select id="queryShopList" resultMap="shopDaoResultMap">
+        select
+        s.id as s_id,
+        s.name as s_name,
+        s.image,
+        s.`describe`,
+        s.addr,
+        s.phone,
+        s.area_id,
+        s.shop_category_id,
+        s.person_id,
+        s.priority,
+        s.enable_status,
+        s.create_time,
+        s.last_edit_time,
+        a.id as a_id,
+        a.area_name ,
+        sc.id as sc_id,
+        sc.name as sc_name,
+        pi.id as pi_id,
+        pi.name as pi_name
+        from
+        tb_shop s,
+        tb_area a,
+        tb_shop_category sc,
+        tb_person_info pi
+        <where>
+            <if test="shopCondition.area !=null and shopCondition.area.id !=null">
+                and s.area_id = #{shopCondition.area.id}
+            </if>
+            <if test="shopCondition.shopCategory !=null and shopCondition.shopCategory.parent ==null
+                    and shopCondition.shopCategory.id !=null">
+                and s.shop_category_id in (select id from tb_shop_category where parent_id = #{shopCondition.shopCategory.id})
+            </if>
+            <if test="shopCondition.shopCategory !=null and shopCondition.shopCategory.parent !=null
+                    and shopCondition.shopCategory.parent.id !=null">
+                and s.shop_category_id = #{shopCondition.shopCategory.id}
+            </if>
+            <if test="shopCondition.name !=null">
+                and s.name like '%${shopCondition.name}%'
+            </if>
+            <if test="shopCondition.enableStatus != null">
+                and s.enable_status = #{shopCondition.enableStatus}
+            </if>
+            <if test="shopCondition.owner !=null and shopCondition.owner.id !=null">
+                and s.person_id = #{shopCondition.owner.id}
+            </if>
+            and s.area_id = a.id
+            and s.shop_category_id = sc.id
+            and s.person_id = pi.id
+        </where>
+        order by s.priority desc 
+        limit #{rowIndex},#{pageSize}
+
+    </select>
+    <!--通过 area，shopCategory，shopName，enableStatus，ownerId搜索-->
+    <select id="queryShopCount" resultType="int">
+        select
+        count(1)
+        from
+        tb_shop s,
+        tb_area a,
+        tb_shop_category sc,
+        tb_person_info pi
+        <where>
+            <if test="shopCondition.area !=null and shopCondition.area.id !=null">
+                and s.area_id = #{shopCondition.area.id}
+            </if>
+            <if test="shopCondition.shopCategory !=null and shopCondition.shopCategory.parent ==null
+                    and shopCondition.shopCategory.id !=null">
+                and s.shop_category_id in (select id from tb_shop_category where parent_id = #{shopCondition.shopCategory.id})
+            </if>
+            <if test="shopCondition.shopCategory !=null and shopCondition.shopCategory.parent !=null
+                    and shopCondition.shopCategory.parent.id !=null">
+                and s.shop_category_id = #{shopCondition.shopCategory.id}
+            </if>
+            <if test="shopCondition.name !=null">
+                and s.name like '%${shopCondition.name}%'
+            </if>
+            <if test="shopCondition.enableStatus != null">
+                and s.enable_status = #{shopCondition.enableStatus}
+            </if>
+            <if test="shopCondition.owner !=null and shopCondition.owner.id !=null">
+                and s.person_id = #{shopCondition.owner.id}
+            </if>
+            and s.area_id = a.id
+            and s.shop_category_id = sc.id
+            and s.person_id = pi.id
+        </where>
+    </select>
+</mapper>

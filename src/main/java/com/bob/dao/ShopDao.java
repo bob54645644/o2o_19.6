@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface shopDao {
+public interface ShopDao {
     int insertShop(Shop shop);
 
     //不删除，商店置为不可用即可

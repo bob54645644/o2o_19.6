@@ -1,6 +1,7 @@
 package com.bob.dao;
 
 import com.bob.entity.HeadLine;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface HeadLineDao {
 
     int updateHeadLine(HeadLine headLine);
 
-    HeadLine queryHeadLineById(int HeadLineId);
+    HeadLine queryHeadLineById(int headLineId);
 
     List<HeadLine> queryHeadLineByIds(List<Integer> headLineIdList);
 

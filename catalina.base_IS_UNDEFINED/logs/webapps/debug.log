@@ -1,45 +1,116 @@
-2019-06-16 07:51:30.316 [main] DEBUG com.bob.dao.PersonInfoDao.insertPersonInfo -==>  Preparing: insert into tb_person_info (name, gender, email, enable_status, user_type, create_time, last_edit_time) values (?,?,?,?,?,?,#｛lastEditTime｝) 
-2019-06-16 07:51:30.374 [main] DEBUG com.bob.dao.PersonInfoDao.insertPersonInfo -==> Parameters: test(String), 男(String), 123@4.com(String), 1(Integer), 1(Integer), 2019-06-16 07:51:29.61(Timestamp)
-2019-06-16 07:51:30.446 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -==>  Preparing: select (id,name,gender,email,enable_status,user_type,create_time,last_edit_time) from tb_person_info where id=? 
-2019-06-16 07:51:30.447 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -==> Parameters: 1(Integer)
-2019-06-16 07:57:31.996 [main] DEBUG com.bob.dao.PersonInfoDao.insertPersonInfo -==>  Preparing: insert into tb_person_info (name, gender, email, enable_status, user_type, create_time, last_edit_time) values (?,?,?,?,?,?,#｛lastEditTime｝) 
-2019-06-16 07:57:32.039 [main] DEBUG com.bob.dao.PersonInfoDao.insertPersonInfo -==> Parameters: test(String), 男(String), 123@4.com(String), 1(Integer), 1(Integer), 2019-06-16 07:57:31.752(Timestamp)
-2019-06-16 07:57:32.104 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -==>  Preparing: select (id,name,gender,email,enable_status,user_type,create_time,last_edit_time) from tb_person_info where id=? 
-2019-06-16 07:57:32.105 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -==> Parameters: 1(Integer)
-2019-06-16 07:58:26.944 [main] DEBUG com.bob.dao.PersonInfoDao.insertPersonInfo -==>  Preparing: insert into tb_person_info (name, gender, email, enable_status, user_type, create_time, last_edit_time) values (?,?,?,?,?,?,?) 
-2019-06-16 07:58:26.985 [main] DEBUG com.bob.dao.PersonInfoDao.insertPersonInfo -==> Parameters: test(String), 男(String), 123@4.com(String), 1(Integer), 1(Integer), 2019-06-16 07:58:26.671(Timestamp), 2019-06-16 07:58:26.671(Timestamp)
-2019-06-16 07:58:27.099 [main] DEBUG com.bob.dao.PersonInfoDao.insertPersonInfo -<==    Updates: 1
-2019-06-16 07:58:27.141 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -==>  Preparing: select (id,name,gender,email,enable_status,user_type,create_time,last_edit_time) from tb_person_info where id=? 
-2019-06-16 07:58:27.142 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -==> Parameters: 1(Integer)
-2019-06-16 07:58:55.268 [main] DEBUG com.bob.dao.PersonInfoDao.insertPersonInfo -==>  Preparing: insert into tb_person_info (name, gender, email, enable_status, user_type, create_time, last_edit_time) values (?,?,?,?,?,?,?) 
-2019-06-16 07:58:55.307 [main] DEBUG com.bob.dao.PersonInfoDao.insertPersonInfo -==> Parameters: test(String), 男(String), 123@4.com(String), 1(Integer), 1(Integer), 2019-06-16 07:58:54.994(Timestamp), 2019-06-16 07:58:54.994(Timestamp)
-2019-06-16 07:58:55.414 [main] DEBUG com.bob.dao.PersonInfoDao.insertPersonInfo -<==    Updates: 1
-2019-06-16 07:58:55.452 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -==>  Preparing: select (id,name,gender,email,enable_status,user_type,create_time,last_edit_time) from tb_person_info where id=? 
-2019-06-16 07:58:55.452 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -==> Parameters: 1(Integer)
-2019-06-16 07:59:28.783 [main] DEBUG com.bob.dao.PersonInfoDao.insertPersonInfo -==>  Preparing: insert into tb_person_info (name, gender, email, enable_status, user_type, create_time, last_edit_time) values (?,?,?,?,?,?,?) 
-2019-06-16 07:59:28.823 [main] DEBUG com.bob.dao.PersonInfoDao.insertPersonInfo -==> Parameters: test(String), 男(String), 123@4.com(String), 1(Integer), 1(Integer), 2019-06-16 07:59:28.538(Timestamp), 2019-06-16 07:59:28.538(Timestamp)
-2019-06-16 07:59:28.867 [main] DEBUG com.bob.dao.PersonInfoDao.insertPersonInfo -<==    Updates: 1
-2019-06-16 07:59:28.892 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -==>  Preparing: select id,name,gender,email,enable_status,user_type,create_time,last_edit_time from tb_person_info where id=? 
-2019-06-16 07:59:28.892 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -==> Parameters: 1(Integer)
-2019-06-16 07:59:28.906 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -<==      Total: 1
-2019-06-16 08:01:33.109 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -==>  Preparing: select id,name,gender,email,enable_status,user_type,create_time,last_edit_time from tb_person_info where id=? 
-2019-06-16 08:01:33.152 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -==> Parameters: 2(Integer)
-2019-06-16 08:01:33.181 [main] DEBUG com.bob.dao.PersonInfoDao.queryPersonInfoById -<==      Total: 1
-2019-06-16 08:31:07.040 [main] DEBUG com.bob.dao.WechatAuthDao.insertWechatAuth -==>  Preparing: insert into tb_wechat_auth (open_id, person_id, create_time) values (?,?,?) 
-2019-06-16 08:31:07.080 [main] DEBUG com.bob.dao.WechatAuthDao.insertWechatAuth -==> Parameters: openId(String), 0(Integer), 2019-06-16 08:31:06.79(Timestamp)
-2019-06-16 08:31:07.303 [main] DEBUG com.bob.dao.WechatAuthDao.queryWechatAuthByOpenId -==>  Preparing: select w.id as w_id, w.open_id w.person_id, w.create_time as w_creat_time p.id as p_id, p.name, p.gender, p.email, p.enable_status, p.user_type, p.create_time as p_create_time, p.last_edit_time from tb_wechat_auth w left join tb_person_info p on w.person_id = p.id where open_id = ? 
-2019-06-16 08:31:07.303 [main] DEBUG com.bob.dao.WechatAuthDao.queryWechatAuthByOpenId -==> Parameters: qq(String)
-2019-06-16 08:32:09.497 [main] DEBUG com.bob.dao.WechatAuthDao.insertWechatAuth -==>  Preparing: insert into tb_wechat_auth (open_id, person_id, create_time) values (?,?,?) 
-2019-06-16 08:32:09.531 [main] DEBUG com.bob.dao.WechatAuthDao.insertWechatAuth -==> Parameters: openId(String), 2(Integer), 2019-06-16 08:32:09.247(Timestamp)
-2019-06-16 08:32:09.604 [main] DEBUG com.bob.dao.WechatAuthDao.insertWechatAuth -<==    Updates: 1
-2019-06-16 08:32:09.662 [main] DEBUG com.bob.dao.WechatAuthDao.queryWechatAuthByOpenId -==>  Preparing: select w.id as w_id, w.open_id w.person_id, w.create_time as w_creat_time p.id as p_id, p.name, p.gender, p.email, p.enable_status, p.user_type, p.create_time as p_create_time, p.last_edit_time from tb_wechat_auth w left join tb_person_info p on w.person_id = p.id where open_id = ? 
-2019-06-16 08:32:09.662 [main] DEBUG com.bob.dao.WechatAuthDao.queryWechatAuthByOpenId -==> Parameters: qq(String)
-2019-06-16 08:33:20.518 [main] DEBUG com.bob.dao.WechatAuthDao.queryWechatAuthByOpenId -==>  Preparing: select w.id as w_id, w.open_id, w.person_id, w.create_time as w_creat_time, p.id as p_id, p.name, p.gender, p.email, p.enable_status, p.user_type, p.create_time as p_create_time, p.last_edit_time from tb_wechat_auth w left join tb_person_info p on w.person_id = p.id where open_id = ? 
-2019-06-16 08:33:20.558 [main] DEBUG com.bob.dao.WechatAuthDao.queryWechatAuthByOpenId -==> Parameters: qq(String)
-2019-06-16 08:33:20.589 [main] DEBUG com.bob.dao.WechatAuthDao.queryWechatAuthByOpenId -<==      Total: 1
-2019-06-16 08:33:48.105 [main] DEBUG com.bob.dao.WechatAuthDao.queryWechatAuthByOpenId -==>  Preparing: select w.id as w_id, w.open_id, w.person_id, w.create_time as w_creat_time, p.id as p_id, p.name, p.gender, p.email, p.enable_status, p.user_type, p.create_time as p_create_time, p.last_edit_time from tb_wechat_auth w left join tb_person_info p on w.person_id = p.id where open_id = ? 
-2019-06-16 08:33:48.142 [main] DEBUG com.bob.dao.WechatAuthDao.queryWechatAuthByOpenId -==> Parameters: openId(String)
-2019-06-16 08:33:48.168 [main] DEBUG com.bob.dao.WechatAuthDao.queryWechatAuthByOpenId -<==      Total: 1
-2019-06-16 08:36:07.088 [main] DEBUG com.bob.dao.WechatAuthDao.queryWechatAuthByOpenId -==>  Preparing: select w.id as w_id, w.open_id, w.person_id, w.create_time as w_create_time, p.id as p_id, p.name, p.gender, p.email, p.enable_status, p.user_type, p.create_time as p_create_time, p.last_edit_time from tb_wechat_auth w left join tb_person_info p on w.person_id = p.id where open_id = ? 
-2019-06-16 08:36:07.120 [main] DEBUG com.bob.dao.WechatAuthDao.queryWechatAuthByOpenId -==> Parameters: openId(String)
-2019-06-16 08:36:07.146 [main] DEBUG com.bob.dao.WechatAuthDao.queryWechatAuthByOpenId -<==      Total: 1
+2019-06-17 11:11:20.486 [main] DEBUG com.bob.dao.ProductDao.insertProduct -==>  Preparing: insert into tb_product (name, image, `describe`, priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time) values (?,?,?,?,?,?,?,?,?,?,?) 
+2019-06-17 11:11:20.606 [main] DEBUG com.bob.dao.ProductDao.insertProduct -==> Parameters: product(String), iamge(String), describe(String), 0(Integer), 1.0(String), 2.0(String), 1(Integer), 2(Integer), 0(Integer), 2019-06-17 11:11:19.839(Timestamp), 2019-06-17 11:11:19.839(Timestamp)
+2019-06-17 11:11:20.680 [main] DEBUG com.bob.dao.ProductDao.insertProduct -<==    Updates: 1
+2019-06-17 11:11:20.732 [main] DEBUG com.bob.dao.ProductDao.updateProduct -==>  Preparing: update tb_product SET name = ?, image = ?, `describe` = ?, priority = ?, normal_price = ?, promotion_price = ?, product_category_id = ?, enable_status = ?, last_edit_time = ? where id = ? and shop_id = ? 
+2019-06-17 11:11:20.734 [main] DEBUG com.bob.dao.ProductDao.updateProduct -==> Parameters: product(String), iamge(String), describe(String), 0(Integer), 1.0(String), 2.0(String), 2(Integer), 0(Integer), 2019-06-17 11:11:20.705(Timestamp), 0(Integer), 1(Integer)
+2019-06-17 11:11:20.734 [main] DEBUG com.bob.dao.ProductDao.updateProduct -<==    Updates: 0
+2019-06-17 11:11:20.742 [main] DEBUG com.bob.dao.ProductDao.queryProductById -==>  Preparing: select p.id as p_id, p.name as p_name, p.image as p_image, p.`describe` as p_describe, p.priority as p_priority, p.normal_price, p.promotion_price, p.shop_id, p.product_category_id, p.enable_status, p.create_time as p_create_time, p.last_edit_time, pi.id as pi_id, pi.image as pi_image, pi.`describe` as pi_describe, pi.priority as pi_priority, pi.product_id, pi.create_time as pi_create_time from tb_product p left join tb_product_image pi on p.id = pi.product_id where p.id = ? 
+2019-06-17 11:11:20.743 [main] DEBUG com.bob.dao.ProductDao.queryProductById -==> Parameters: 0(Integer)
+2019-06-17 11:11:20.765 [main] DEBUG com.bob.dao.ProductDao.queryProductById -<==      Total: 0
+2019-06-17 11:11:20.775 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -==>  Preparing: select id, name, image, "describe", priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time from tb_product where shop_id = ? 
+2019-06-17 11:11:20.776 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -==> Parameters: 1(Integer)
+2019-06-17 11:11:20.821 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -<==      Total: 1
+2019-06-17 11:11:21.007 [main] DEBUG com.bob.dao.ProductDao.queryProductList -==>  Preparing: select id, name, image, `describe`, priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time from tb_product WHERE name = '%product%' and shop_id = ? and product_category_id = ? order by priority desc limit ?,? 
+2019-06-17 11:11:21.007 [main] DEBUG com.bob.dao.ProductDao.queryProductList -==> Parameters: 1(Integer), 2(Integer), 0(Integer), 10(Integer)
+2019-06-17 11:11:21.059 [main] DEBUG com.bob.dao.ProductDao.queryProductList -<==      Total: 0
+2019-06-17 11:11:21.062 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -==>  Preparing: select count(1) from tb_product WHERE name = '%product%' and shop_id = ? and product_category_id = ? 
+2019-06-17 11:11:21.063 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -==> Parameters: 1(Integer), 2(Integer)
+2019-06-17 11:11:21.064 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -<==      Total: 1
+2019-06-17 11:14:15.831 [main] DEBUG com.bob.dao.ProductDao.insertProduct -==>  Preparing: insert into tb_product (name, image, `describe`, priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time) values (?,?,?,?,?,?,?,?,?,?,?) 
+2019-06-17 11:14:15.873 [main] DEBUG com.bob.dao.ProductDao.insertProduct -==> Parameters: product(String), iamge(String), describe(String), 0(Integer), 1.0(String), 2.0(String), 1(Integer), 2(Integer), 0(Integer), 2019-06-17 11:14:15.553(Timestamp), 2019-06-17 11:14:15.553(Timestamp)
+2019-06-17 11:14:15.982 [main] DEBUG com.bob.dao.ProductDao.insertProduct -<==    Updates: 1
+2019-06-17 11:14:16.026 [main] DEBUG com.bob.dao.ProductDao.updateProduct -==>  Preparing: update tb_product SET name = ?, image = ?, `describe` = ?, priority = ?, normal_price = ?, promotion_price = ?, product_category_id = ?, enable_status = ?, last_edit_time = ? where id = ? and shop_id = ? 
+2019-06-17 11:14:16.027 [main] DEBUG com.bob.dao.ProductDao.updateProduct -==> Parameters: product(String), iamge(String), describe(String), 0(Integer), 1.0(String), 2.0(String), 2(Integer), 0(Integer), 2019-06-17 11:14:16.001(Timestamp), 2(Integer), 1(Integer)
+2019-06-17 11:14:16.055 [main] DEBUG com.bob.dao.ProductDao.updateProduct -<==    Updates: 1
+2019-06-17 11:14:16.059 [main] DEBUG com.bob.dao.ProductDao.queryProductById -==>  Preparing: select p.id as p_id, p.name as p_name, p.image as p_image, p.`describe` as p_describe, p.priority as p_priority, p.normal_price, p.promotion_price, p.shop_id, p.product_category_id, p.enable_status, p.create_time as p_create_time, p.last_edit_time, pi.id as pi_id, pi.image as pi_image, pi.`describe` as pi_describe, pi.priority as pi_priority, pi.product_id, pi.create_time as pi_create_time from tb_product p left join tb_product_image pi on p.id = pi.product_id where p.id = ? 
+2019-06-17 11:14:16.060 [main] DEBUG com.bob.dao.ProductDao.queryProductById -==> Parameters: 2(Integer)
+2019-06-17 11:14:16.076 [main] DEBUG com.bob.dao.ProductDao.queryProductById -<==      Total: 1
+2019-06-17 11:14:16.084 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -==>  Preparing: select id, name, image, "describe", priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time from tb_product where shop_id = ? 
+2019-06-17 11:14:16.084 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -==> Parameters: 1(Integer)
+2019-06-17 11:14:16.087 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -<==      Total: 2
+2019-06-17 11:14:16.099 [main] DEBUG com.bob.dao.ProductDao.queryProductList -==>  Preparing: select id, name, image, `describe`, priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time from tb_product WHERE name = '%product%' and shop_id = ? and product_category_id = ? order by priority desc limit ?,? 
+2019-06-17 11:14:16.100 [main] DEBUG com.bob.dao.ProductDao.queryProductList -==> Parameters: 1(Integer), 2(Integer), 0(Integer), 10(Integer)
+2019-06-17 11:14:16.101 [main] DEBUG com.bob.dao.ProductDao.queryProductList -<==      Total: 0
+2019-06-17 11:14:16.105 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -==>  Preparing: select count(1) from tb_product WHERE name = '%product%' and shop_id = ? and product_category_id = ? 
+2019-06-17 11:14:16.107 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -==> Parameters: 1(Integer), 2(Integer)
+2019-06-17 11:14:16.110 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -<==      Total: 1
+2019-06-17 11:16:37.804 [main] DEBUG com.bob.dao.ProductDao.insertProduct -==>  Preparing: insert into tb_product (name, image, `describe`, priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time) values (?,?,?,?,?,?,?,?,?,?,?) 
+2019-06-17 11:16:37.845 [main] DEBUG com.bob.dao.ProductDao.insertProduct -==> Parameters: product(String), iamge(String), describe(String), 0(Integer), 1.0(String), 2.0(String), 1(Integer), 2(Integer), 0(Integer), 2019-06-17 11:16:37.564(Timestamp), 2019-06-17 11:16:37.564(Timestamp)
+2019-06-17 11:16:37.953 [main] DEBUG com.bob.dao.ProductDao.insertProduct -<==    Updates: 1
+2019-06-17 11:16:38.028 [main] DEBUG com.bob.dao.ProductDao.updateProduct -==>  Preparing: update tb_product SET name = ?, image = ?, `describe` = ?, priority = ?, normal_price = ?, promotion_price = ?, product_category_id = ?, enable_status = ?, last_edit_time = ? where id = ? and shop_id = ? 
+2019-06-17 11:16:38.030 [main] DEBUG com.bob.dao.ProductDao.updateProduct -==> Parameters: product(String), iamge(String), describe(String), 0(Integer), 1.0(String), 2.0(String), 2(Integer), 0(Integer), 2019-06-17 11:16:37.992(Timestamp), 3(Integer), 1(Integer)
+2019-06-17 11:16:38.254 [main] DEBUG com.bob.dao.ProductDao.updateProduct -<==    Updates: 1
+2019-06-17 11:16:38.258 [main] DEBUG com.bob.dao.ProductDao.queryProductById -==>  Preparing: select p.id as p_id, p.name as p_name, p.image as p_image, p.`describe` as p_describe, p.priority as p_priority, p.normal_price, p.promotion_price, p.shop_id, p.product_category_id, p.enable_status, p.create_time as p_create_time, p.last_edit_time, pi.id as pi_id, pi.image as pi_image, pi.`describe` as pi_describe, pi.priority as pi_priority, pi.product_id, pi.create_time as pi_create_time from tb_product p left join tb_product_image pi on p.id = pi.product_id where p.id = ? 
+2019-06-17 11:16:38.258 [main] DEBUG com.bob.dao.ProductDao.queryProductById -==> Parameters: 3(Integer)
+2019-06-17 11:16:38.272 [main] DEBUG com.bob.dao.ProductDao.queryProductById -<==      Total: 1
+2019-06-17 11:16:38.279 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -==>  Preparing: select id, name, image, "describe", priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time from tb_product where shop_id = ? 
+2019-06-17 11:16:38.280 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -==> Parameters: 1(Integer)
+2019-06-17 11:16:38.284 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -<==      Total: 3
+2019-06-17 11:16:38.302 [main] DEBUG com.bob.dao.ProductDao.queryProductList -==>  Preparing: select id, name, image, `describe`, priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time from tb_product WHERE name = '%product%' and shop_id = ? and product_category_id = ? order by priority desc limit ?,? 
+2019-06-17 11:16:38.303 [main] DEBUG com.bob.dao.ProductDao.queryProductList -==> Parameters: 1(Integer), 2(Integer), 0(Integer), 10(Integer)
+2019-06-17 11:16:38.305 [main] DEBUG com.bob.dao.ProductDao.queryProductList -<==      Total: 0
+2019-06-17 11:16:38.310 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -==>  Preparing: select count(1) from tb_product WHERE name = '%product%' and shop_id = ? and product_category_id = ? 
+2019-06-17 11:16:38.312 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -==> Parameters: 1(Integer), 2(Integer)
+2019-06-17 11:16:38.315 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -<==      Total: 1
+2019-06-17 11:18:28.971 [main] DEBUG com.bob.dao.ProductDao.insertProduct -==>  Preparing: insert into tb_product (name, image, `describe`, priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time) values (?,?,?,?,?,?,?,?,?,?,?) 
+2019-06-17 11:18:29.011 [main] DEBUG com.bob.dao.ProductDao.insertProduct -==> Parameters: product(String), iamge(String), describe(String), 0(Integer), 1.0(String), 2.0(String), 1(Integer), 2(Integer), 0(Integer), 2019-06-17 11:18:28.742(Timestamp), 2019-06-17 11:18:28.742(Timestamp)
+2019-06-17 11:18:29.180 [main] DEBUG com.bob.dao.ProductDao.insertProduct -<==    Updates: 1
+2019-06-17 11:18:29.262 [main] DEBUG com.bob.dao.ProductDao.updateProduct -==>  Preparing: update tb_product SET name = ?, image = ?, `describe` = ?, priority = ?, normal_price = ?, promotion_price = ?, product_category_id = ?, enable_status = ?, last_edit_time = ? where id = ? and shop_id = ? 
+2019-06-17 11:18:29.263 [main] DEBUG com.bob.dao.ProductDao.updateProduct -==> Parameters: product(String), iamge(String), describe(String), 0(Integer), 1.0(String), 2.0(String), 2(Integer), 0(Integer), 2019-06-17 11:18:29.23(Timestamp), 4(Integer), 1(Integer)
+2019-06-17 11:18:29.303 [main] DEBUG com.bob.dao.ProductDao.updateProduct -<==    Updates: 1
+2019-06-17 11:18:29.307 [main] DEBUG com.bob.dao.ProductDao.queryProductById -==>  Preparing: select p.id as p_id, p.name as p_name, p.image as p_image, p.`describe` as p_describe, p.priority as p_priority, p.normal_price, p.promotion_price, p.shop_id, p.product_category_id, p.enable_status, p.create_time as p_create_time, p.last_edit_time, pi.id as pi_id, pi.image as pi_image, pi.`describe` as pi_describe, pi.priority as pi_priority, pi.product_id, pi.create_time as pi_create_time from tb_product p left join tb_product_image pi on p.id = pi.product_id where p.id = ? 
+2019-06-17 11:18:29.307 [main] DEBUG com.bob.dao.ProductDao.queryProductById -==> Parameters: 4(Integer)
+2019-06-17 11:18:29.320 [main] DEBUG com.bob.dao.ProductDao.queryProductById -<==      Total: 1
+2019-06-17 11:18:29.328 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -==>  Preparing: select id, name, image, "describe", priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time from tb_product where shop_id = ? 
+2019-06-17 11:18:29.328 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -==> Parameters: 1(Integer)
+2019-06-17 11:18:29.332 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -<==      Total: 4
+2019-06-17 11:18:29.341 [main] DEBUG com.bob.dao.ProductDao.queryProductList -==>  Preparing: select id, name, image, `describe`, priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time from tb_product WHERE name = '%product%' and enable_status = ? and shop_id = ? and product_category_id = ? order by priority desc limit ?,? 
+2019-06-17 11:18:29.342 [main] DEBUG com.bob.dao.ProductDao.queryProductList -==> Parameters: 0(Integer), 1(Integer), 2(Integer), 0(Integer), 10(Integer)
+2019-06-17 11:18:29.343 [main] DEBUG com.bob.dao.ProductDao.queryProductList -<==      Total: 0
+2019-06-17 11:18:29.347 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -==>  Preparing: select count(1) from tb_product WHERE name = '%product%' and enable_status = ? and shop_id = ? and product_category_id = ? 
+2019-06-17 11:18:29.347 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -==> Parameters: 0(Integer), 1(Integer), 2(Integer)
+2019-06-17 11:18:29.349 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -<==      Total: 1
+2019-06-17 11:19:27.405 [main] DEBUG com.bob.dao.ProductDao.insertProduct -==>  Preparing: insert into tb_product (name, image, `describe`, priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time) values (?,?,?,?,?,?,?,?,?,?,?) 
+2019-06-17 11:19:27.453 [main] DEBUG com.bob.dao.ProductDao.insertProduct -==> Parameters: product(String), iamge(String), describe(String), 0(Integer), 1.0(String), 2.0(String), 1(Integer), 2(Integer), 0(Integer), 2019-06-17 11:19:27.163(Timestamp), 2019-06-17 11:19:27.163(Timestamp)
+2019-06-17 11:19:27.491 [main] DEBUG com.bob.dao.ProductDao.insertProduct -<==    Updates: 1
+2019-06-17 11:19:27.538 [main] DEBUG com.bob.dao.ProductDao.updateProduct -==>  Preparing: update tb_product SET name = ?, image = ?, `describe` = ?, priority = ?, normal_price = ?, promotion_price = ?, product_category_id = ?, enable_status = ?, last_edit_time = ? where id = ? and shop_id = ? 
+2019-06-17 11:19:27.539 [main] DEBUG com.bob.dao.ProductDao.updateProduct -==> Parameters: product(String), iamge(String), describe(String), 0(Integer), 1.0(String), 2.0(String), 2(Integer), 0(Integer), 2019-06-17 11:19:27.513(Timestamp), 5(Integer), 1(Integer)
+2019-06-17 11:19:27.573 [main] DEBUG com.bob.dao.ProductDao.updateProduct -<==    Updates: 1
+2019-06-17 11:19:27.577 [main] DEBUG com.bob.dao.ProductDao.queryProductById -==>  Preparing: select p.id as p_id, p.name as p_name, p.image as p_image, p.`describe` as p_describe, p.priority as p_priority, p.normal_price, p.promotion_price, p.shop_id, p.product_category_id, p.enable_status, p.create_time as p_create_time, p.last_edit_time, pi.id as pi_id, pi.image as pi_image, pi.`describe` as pi_describe, pi.priority as pi_priority, pi.product_id, pi.create_time as pi_create_time from tb_product p left join tb_product_image pi on p.id = pi.product_id where p.id = ? 
+2019-06-17 11:19:27.577 [main] DEBUG com.bob.dao.ProductDao.queryProductById -==> Parameters: 5(Integer)
+2019-06-17 11:19:27.588 [main] DEBUG com.bob.dao.ProductDao.queryProductById -<==      Total: 1
+2019-06-17 11:19:27.596 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -==>  Preparing: select id, name, image, "describe", priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time from tb_product where shop_id = ? 
+2019-06-17 11:19:27.596 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -==> Parameters: 1(Integer)
+2019-06-17 11:19:27.600 [main] DEBUG com.bob.dao.ProductDao.queryProductListByShopId -<==      Total: 5
+2019-06-17 11:19:27.610 [main] DEBUG com.bob.dao.ProductDao.queryProductList -==>  Preparing: select id, name, image, `describe`, priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time from tb_product WHERE name like '%product%' and enable_status = ? and shop_id = ? and product_category_id = ? order by priority desc limit ?,? 
+2019-06-17 11:19:27.611 [main] DEBUG com.bob.dao.ProductDao.queryProductList -==> Parameters: 0(Integer), 1(Integer), 2(Integer), 0(Integer), 10(Integer)
+2019-06-17 11:19:27.614 [main] DEBUG com.bob.dao.ProductDao.queryProductList -<==      Total: 5
+2019-06-17 11:19:27.617 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -==>  Preparing: select count(1) from tb_product WHERE name like '%product%' and enable_status = ? and shop_id = ? and product_category_id = ? 
+2019-06-17 11:19:27.618 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -==> Parameters: 0(Integer), 1(Integer), 2(Integer)
+2019-06-17 11:19:27.622 [main] DEBUG com.bob.dao.ProductDao.queryProductCount -<==      Total: 1
+2019-06-17 11:23:22.479 [main] DEBUG com.bob.dao.ProductDao.deleteProductById -==>  Preparing: delete from tb_product where id = ? 
+2019-06-17 11:23:22.513 [main] DEBUG com.bob.dao.ProductDao.deleteProductById -==> Parameters: 5(Integer)
+2019-06-17 11:23:22.561 [main] DEBUG com.bob.dao.ProductDao.deleteProductById -<==    Updates: 1
+2019-06-17 11:23:22.603 [main] DEBUG com.bob.dao.ProductDao.batchDeleteProductById -==>  Preparing: delete from tb_product where id in ( ? , ? ) 
+2019-06-17 11:23:22.603 [main] DEBUG com.bob.dao.ProductDao.batchDeleteProductById -==> Parameters: 4(Integer), 3(Integer)
+2019-06-17 11:23:22.653 [main] DEBUG com.bob.dao.ProductDao.batchDeleteProductById -<==    Updates: 2
+2019-06-17 11:39:35.344 [main] DEBUG c.bob.dao.ProductImageDao.batchInsertProductImage -==>  Preparing: insert into tb_product_image (image, `describe`, priority, product_id, create_time) values ( ?,?,?,?,? , ?,?,?,?,? ) 
+2019-06-17 11:39:35.378 [main] DEBUG c.bob.dao.ProductImageDao.batchInsertProductImage -==> Parameters: image(String), describe(String), 0(Integer), 1(Integer), 2019-06-17 11:39:35.099(Timestamp), image1(String), describe1(String), 0(Integer), 1(Integer), 2019-06-17 11:39:35.099(Timestamp)
+2019-06-17 11:39:35.550 [main] DEBUG c.b.d.ProductImageDao.queryProductImageByProductId -==>  Preparing: select id, image, `describe`, priority, product_id, create_time from tb_product_image where product_id = ? order by id 
+2019-06-17 11:39:35.550 [main] DEBUG c.b.d.ProductImageDao.queryProductImageByProductId -==> Parameters: 1(Integer)
+2019-06-17 11:39:35.588 [main] DEBUG c.b.d.ProductImageDao.queryProductImageByProductId -<==      Total: 0
+2019-06-17 11:41:42.787 [main] DEBUG c.bob.dao.ProductImageDao.batchInsertProductImage -==>  Preparing: insert into tb_product_image (image, `describe`, priority, product_id, create_time) values (?,?,?,?,?) , (?,?,?,?,?) 
+2019-06-17 11:41:42.826 [main] DEBUG c.bob.dao.ProductImageDao.batchInsertProductImage -==> Parameters: image(String), describe(String), 0(Integer), 1(Integer), 2019-06-17 11:41:42.523(Timestamp), image1(String), describe1(String), 0(Integer), 1(Integer), 2019-06-17 11:41:42.523(Timestamp)
+2019-06-17 11:41:42.937 [main] DEBUG c.bob.dao.ProductImageDao.batchInsertProductImage -<==    Updates: 2
+2019-06-17 11:41:43.049 [main] DEBUG c.b.d.ProductImageDao.queryProductImageByProductId -==>  Preparing: select id, image, `describe`, priority, product_id, create_time from tb_product_image where product_id = ? order by id 
+2019-06-17 11:41:43.049 [main] DEBUG c.b.d.ProductImageDao.queryProductImageByProductId -==> Parameters: 1(Integer)
+2019-06-17 11:41:43.062 [main] DEBUG c.b.d.ProductImageDao.queryProductImageByProductId -<==      Total: 2
+2019-06-17 11:44:40.909 [main] DEBUG c.bob.dao.ProductImageDao.batchDeleteProductImage -==>  Preparing: delete from tb_product_image where product_id = ? 
+2019-06-17 11:44:40.941 [main] DEBUG c.bob.dao.ProductImageDao.batchDeleteProductImage -==> Parameters: 1(Integer)
+2019-06-17 11:44:41.057 [main] DEBUG c.bob.dao.ProductImageDao.batchDeleteProductImage -<==    Updates: 2
+2019-06-17 11:45:10.844 [main] DEBUG c.bob.dao.ProductImageDao.batchInsertProductImage -==>  Preparing: insert into tb_product_image (image, `describe`, priority, product_id, create_time) values (?,?,?,?,?) , (?,?,?,?,?) 
+2019-06-17 11:45:10.881 [main] DEBUG c.bob.dao.ProductImageDao.batchInsertProductImage -==> Parameters: image(String), describe(String), 0(Integer), 1(Integer), 2019-06-17 11:45:10.571(Timestamp), image1(String), describe1(String), 0(Integer), 1(Integer), 2019-06-17 11:45:10.571(Timestamp)
+2019-06-17 11:45:10.992 [main] DEBUG c.bob.dao.ProductImageDao.batchInsertProductImage -<==    Updates: 2
+2019-06-17 11:45:11.040 [main] DEBUG c.b.d.ProductImageDao.queryProductImageByProductId -==>  Preparing: select id, image, `describe`, priority, product_id, create_time from tb_product_image where product_id = ? order by id 
+2019-06-17 11:45:11.040 [main] DEBUG c.b.d.ProductImageDao.queryProductImageByProductId -==> Parameters: 1(Integer)
+2019-06-17 11:45:11.061 [main] DEBUG c.b.d.ProductImageDao.queryProductImageByProductId -<==      Total: 2

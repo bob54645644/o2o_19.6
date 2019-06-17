@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bob.dao.ShopCategoryDao">
+    <resultMap id="shopCategoryDaoResultMap" type="com.bob.entity.ShopCategory">
+        <id column="s_id" property="id"/>
+        <result column="s_name" property="name" />
+        <result column="s_image" property="image" />
+        <result column="s_describe" property="describe"/>
+        <result column="s_priority" property="priority"/>
+        <result column="s_create_time" property="createTime"/>
+        <result column="s_last_edit_time" property="lastEditTime"/>
+        <association property="parent" column="parent_id"
+        javaType="com.bob.entity.ShopCategory">
+            <id column="ss_id" property="id"/>
+            <result column="ss_name" property="name" />
+            <result column="ss_image" property="image" />
+            <result column="ss_describe" property="describe"/>
+            <result column="ss_priority" property="priority"/>
+            <result column="ss_create_time" property="createTime"/>
+            <result column="ss_last_edit_time" property="lastEditTime"/>
+        </association>
+    </resultMap>
+    <insert id="insertShopCategory" useGeneratedKeys="true"
+            keyColumn="id" keyProperty="id">
+        insert into
+        tb_shop_category
+        (name, image, `describe`, parent_id, priority, create_time, last_edit_time)
+        values
+        (#{name},#{image},#{describe},#{parent.id},#{priority},#{createTime},#{lastEditTime})
+    </insert>
+    <delete id="deleteShopCategory" parameterType="int">
+        delete from 
+        tb_shop_category
+        where 
+        id = #{shopCategoryId}
+    </delete>
+    <delete id="batchDeleteShopCategory" parameterType="int">
+        delete from 
+        tb_shop_category
+        where id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <update id="updateShopCategory">
+      update tb_shop_category
+      <set>
+          <if test="name != null">name = #{name},</if>
+          <if test="image != null">image = #{image},</if>
+          <if test="describe != null" >`describe` = #{describe},</if>
+          <if test="parent !=null and parent.id !=null">parent_id = #{parent.id},</if>
+          <if test="priority != null">priority = #{priority},</if>
+          <if test="lastEditTime != null">last_edit_time = #{lastEditTime}</if>
+      </set>
+      where id = #{id}
+    </update>
+    <select id="queryShopCategoryById" parameterType="int" resultMap="shopCategoryDaoResultMap">
+        select
+        s.id as s_id,
+        s.name as s_name,
+        s.image as s_image,
+        s.`describe` as s_describe,
+        s.parent_id,
+        s.priority as s_priority,
+        s.create_time as s_create_time,
+        s.last_edit_time as s_last_edit_time,
+        ss.id as ss_id,
+        ss.name as ss_name,
+        ss.image as ss_image,
+        ss.`describe` as ss_describe,
+        ss.priority as ss_priority,
+        ss.create_time as ss_create_time,
+        ss.last_edit_time as ss_last_edit_time
+        from tb_shop_category s
+        left join
+        tb_shop_category ss on s.parent_id = ss.id
+        where s.id = #{shopCategoryId}
+    </select>
+    <select id="queryShopCategoryByIds" parameterType="int" resultMap="shopCategoryDaoResultMap">
+        select
+        s.id as s_id,
+        s.name as s_name,
+        s.image as s_image,
+        s.`describe` as s_describe,
+        s.parent_id,
+        s.priority as s_priority,
+        s.create_time as s_create_time,
+        s.last_edit_time as s_last_edit_time,
+        ss.id as ss_id,
+        ss.name as ss_name,
+        ss.image as ss_image,
+        ss.`describe` as ss_describe,
+        ss.priority as ss_priority,
+        ss.create_time as ss_create_time,
+        ss.last_edit_time as ss_last_edit_time
+        from tb_shop_category s
+        left join
+        tb_shop_category ss on s.parent_id = ss.id
+        where s.id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
+</mapper>

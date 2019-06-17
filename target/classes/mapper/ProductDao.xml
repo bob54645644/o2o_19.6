@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bob.dao.ProductDao">
+    <resultMap id="productDaoResultMap" type="com.bob.entity.Product">
+        <id column="p_id" property="id"/>
+        <result column="p_name" property="name"/>
+        <result column="p_image" property="image"/>
+        <result column="p_describe" property="describe"/>
+        <result column="p_priority" property="priority"/>
+        <result column="normal_price" property="normalPrice"/>
+        <result column="promotion_price" property="promotionPrice"/>
+        <result column="enable_status" property="enableStatus"/>
+        <result column="p_create_time" property="createTime"/>
+        <result column="last_edit_time" property="lastEditTime"/>
+        <!--<association property="shop" column="shop_id"
+                     javaType="com.bob.entity.Shop">
+            <id column="id" property="id"/>
+            <result column="name" property="name"/>
+            <result column="person_id" property="owner"/>
+        </association>
+        <association property="productCategory" column="product_category_id"
+                     javaType="com.bob.entity.ProductCategory">
+            <id column="id" property="id"/>
+            <result column="name" property="name"/>
+        </association>-->
+        <collection property="imageList" column="p_id"
+                    ofType="com.bob.entity.ProductImage">
+            <id column="pi_id" property="id"/>
+            <result column="pi_image" property="image"/>
+            <result column="pi_describe" property="describe"/>
+            <result column="pi_priority" property="priority"/>
+            <result column="product_id" property="productId"/>
+            <result column="pi_create_time" property="createTime"/>
+        </collection>
+    </resultMap>
+    <insert id="insertProduct" useGeneratedKeys="true"
+            keyColumn="id" keyProperty="id">
+        insert into
+        tb_product
+        (name, image, `describe`, priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time)
+         values
+        (#{name},#{image},#{describe},#{priority},#{normalPrice},#{promotionPrice},#{shop.id},#{productCategory.id},#{enableStatus},#{createTime},#{lastEditTime})
+    </insert>
+    <delete id="deleteProductById" parameterType="int">
+        delete from
+        tb_product
+        where id = #{productId}
+    </delete>
+    <delete id="batchDeleteProductById" parameterType="int">
+        delete from
+        tb_product
+        where id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <update id="updateProduct">
+        update tb_product
+        <set>
+            <if test="name !=null">name = #{name},</if>
+            <if test="image !=null">image = #{image},</if>
+            <if test="describe !=null">`describe` = #{describe},</if>
+            <if test="priority !=null">priority = #{priority},</if>
+            <if test="normalPrice !=null">normal_price = #{normalPrice},</if>
+            <if test="promotionPrice !=null">promotion_price = #{promotionPrice},</if>
+            <if test="productCategory !=null and productCategory.id !=null">
+                product_category_id = #{productCategory.id},
+            </if>
+            <if test="enableStatus !=null">enable_status = #{enableStatus},</if>
+            <if test="lastEditTime !=null">last_edit_time = #{lastEditTime}</if>
+        </set>
+        where id = #{id}
+        and shop_id = #{shop.id}
+    </update>
+    <select id="queryProductById" parameterType="int" resultMap="productDaoResultMap">
+        select
+        p.id as p_id,
+         p.name as p_name,
+          p.image as p_image,
+           p.`describe` as p_describe,
+            p.priority as p_priority,
+             p.normal_price,
+              p.promotion_price,
+               p.shop_id,
+                p.product_category_id,
+                 p.enable_status,
+                  p.create_time as p_create_time,
+                   p.last_edit_time,
+                    pi.id as pi_id,
+                     pi.image as pi_image,
+                      pi.`describe` as pi_describe,
+                       pi.priority as pi_priority,
+                        pi.product_id,
+                         pi.create_time as pi_create_time
+        from tb_product p
+        left join
+        tb_product_image pi on p.id = pi.product_id
+        where p.id = #{productId}
+    </select>
+    <select id="queryProductListByShopId" parameterType="int"
+            resultType="com.bob.entity.Product">
+        select
+        id, name, image, "describe", priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time
+        from tb_product
+        where shop_id = #{shopId}
+    </select>
+    <select id="queryProductList" resultType="com.bob.entity.Product">
+        select
+        id, name, image, `describe`, priority, normal_price, promotion_price, shop_id, product_category_id, enable_status, create_time, last_edit_time
+        from tb_product
+        <where>
+            <if test="productCondition.name !=null">and name like '%${productCondition.name}%'</if>
+            <if test="productCondition.enableStatus !=null">and enable_status = #{productCondition.enableStatus}</if>
+            <if test="productCondition.shop !=null and productCondition.shop.id !=null">
+                and shop_id = #{productCondition.shop.id}
+            </if>
+            <if test="productCondition.productCategory !=null and productCondition.productCategory.id !=null">
+                and product_category_id = #{productCondition.productCategory.id}
+            </if>
+        </where>
+        order by
+        priority desc
+        limit #{rowIndex},#{pageSize}
+    </select>
+    <select id="queryProductCount" resultType="int">
+        select
+        count(1)
+        from tb_product
+        <where>
+            <if test="productCondition.name !=null">and name like '%${productCondition.name}%'</if>
+            <if test="productCondition.enableStatus !=null">and enable_status = #{productCondition.enableStatus}</if>
+            <if test="productCondition.shop !=null and productCondition.shop.id !=null">
+                and shop_id = #{productCondition.shop.id}
+            </if>
+            <if test="productCondition.productCategory !=null and productCondition.productCategory.id !=null">
+                and product_category_id = #{productCondition.productCategory.id}
+            </if>
+        </where>
+    </select>
+    <update id="updateProductCategoryIdToNull" parameterType="int">
+        update tb_product
+        set product_category_id = null
+        where product_category_id = #{productCategoryId}
+    </update>
+</mapper>
