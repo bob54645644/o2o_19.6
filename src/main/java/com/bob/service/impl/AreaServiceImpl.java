@@ -1,7 +1,9 @@
 package com.bob.service.impl;
 
 import com.bob.dao.AreaDao;
+import com.bob.dto.AreaExecution;
 import com.bob.entity.Area;
+import com.bob.enums.AreaStateEnum;
 import com.bob.service.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +23,9 @@ public class AreaServiceImpl implements AreaService {
     }
 
     @Override
-    public List<Area> getAreaList() {
-        return areaDao.queryArea();
+    public AreaExecution getAreaList() {
+        List<Area> areaList = areaDao.queryArea();
+        AreaExecution areaExecution = new AreaExecution(AreaStateEnum.SUCCESS, areaList);
+        return areaExecution;
     }
 }

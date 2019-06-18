@@ -1,6 +1,7 @@
 package com.bob.dao;
 
 import com.bob.entity.ShopCategory;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -16,4 +17,5 @@ public interface ShopCategoryDao {
     ShopCategory queryShopCategoryById(int shopCategoryId);
 
     List<ShopCategory> queryShopCategoryByIds(List<Integer> shopCategoryIdList);
+    List<ShopCategory> queryShopCategoryByCondition(@Param("shopCategoryCondition") ShopCategory shopCategoryCondition);
 }

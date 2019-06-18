@@ -1,6 +1,7 @@
 package com.bob.service;
 
 import com.bob.BaseTest;
+import com.bob.dto.AreaExecution;
 import com.bob.entity.Area;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -21,8 +22,8 @@ public class AreaServiceTest extends BaseTest {
 
     @Test
     public void testAreaServiceGet() {
-        List<Area> areaList = areaService.getAreaList();
-        log.info(areaList.toString());
-        System.out.println(areaList);
+        AreaExecution execution = areaService.getAreaList();
+        log.info(execution.getAreaList().toString());
+        System.out.println(execution.getAreaList());
     }
 }

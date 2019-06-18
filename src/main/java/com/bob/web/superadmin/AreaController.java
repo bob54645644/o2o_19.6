@@ -1,5 +1,6 @@
 package com.bob.web.superadmin;
 
+import com.bob.dto.AreaExecution;
 import com.bob.entity.Area;
 import com.bob.service.AreaService;
 import org.slf4j.Logger;
@@ -30,8 +31,8 @@ public class AreaController {
     @ResponseBody
     public Map<String, List<Area>> areaList() {
         Map<String, List<Area>> areaMap = new HashMap<>();
-        List<Area> areaList = areaService.getAreaList();
-        areaMap.put("arealist",areaList);
+        AreaExecution execution = areaService.getAreaList();
+        areaMap.put("arealist",execution.getAreaList());
         return areaMap;
     }
 }

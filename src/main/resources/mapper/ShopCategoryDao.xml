@@ -103,4 +103,37 @@
             #{id}
         </foreach>
     </select>
+    <select id="queryShopCategoryByCondition" parameterType="com.bob.entity.ShopCategory"
+            resultMap="shopCategoryDaoResultMap">
+        select
+        s.id as s_id,
+        s.name as s_name,
+        s.image as s_image,
+        s.`describe` as s_describe,
+        s.parent_id,
+        s.priority as s_priority,
+        s.create_time as s_create_time,
+        s.last_edit_time as s_last_edit_time,
+        ss.id as ss_id,
+        ss.name as ss_name,
+        ss.image as ss_image,
+        ss.`describe` as ss_describe,
+        ss.priority as ss_priority,
+        ss.create_time as ss_create_time,
+        ss.last_edit_time as ss_last_edit_time
+        from tb_shop_category s
+        left join
+        tb_shop_category ss on s.parent_id = ss.id
+        <where>
+            <if test="shopCategoryCondition ==null or shopCategoryCondition.id == null
+                    or shopCategoryCondition.id == 0">
+                and s.parent_id is null
+            </if>
+            <if test="shopCategoryCondition !=null
+                and shopCategoryCondition.id !=null
+                and shopCategoryCondition.id !=0">
+                and s.parent_id = #{shopCategoryCondition.id}
+            </if>
+        </where>
+    </select>
 </mapper>

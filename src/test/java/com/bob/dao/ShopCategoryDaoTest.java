@@ -65,7 +65,7 @@ public class ShopCategoryDaoTest extends BaseTest {
         System.out.println("querybyId:" + shopCategory);
     }
 
-    @Test
+//    @Test
     public void dqueryByIds() {
         List<Integer> integerList = new ArrayList<>();
         integerList.add(1);
@@ -80,5 +80,14 @@ public class ShopCategoryDaoTest extends BaseTest {
     public void edelete() {
         int ok = shopCategoryDao.deleteShopCategory(row);
         System.out.println("delete ok=" +ok);
+    }
+
+    @Test
+    public void ftestcondition() {
+        ShopCategory shopCategory = new ShopCategory();
+        shopCategory.setId(1);
+        ShopCategory shopCategory1 = new ShopCategory();
+        List<ShopCategory> shopCategories = shopCategoryDao.queryShopCategoryByCondition(shopCategory);
+        System.out.println(shopCategories);
     }
 }
