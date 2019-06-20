@@ -20,6 +20,11 @@ public class ShopCategoryExecution {
     public ShopCategoryExecution() {
     }
 
+    public ShopCategoryExecution(ShopCategoryStateEnum stateEnum) {
+        this.state = stateEnum.getState();
+        this.info = stateEnum.getInfo();
+    }
+
     public ShopCategoryExecution(ShopCategoryStateEnum stateEnum, ShopCategory shopCategory) {
         this.state = stateEnum.getState();
         this.info = stateEnum.getInfo();

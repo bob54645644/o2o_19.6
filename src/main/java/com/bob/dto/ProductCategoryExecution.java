@@ -17,6 +17,11 @@ public class ProductCategoryExecution {
     public ProductCategoryExecution() {
     }
 
+    public ProductCategoryExecution(ProductCategoryStateEnum stateEnum) {
+        this.state = stateEnum.getState();
+        this.info  = stateEnum.getInfo();
+    }
+
     public ProductCategoryExecution(ProductCategoryStateEnum stateEnum, List<ProductCategory> productCategoryList) {
         this.state = stateEnum.getState();
         this.info = stateEnum.getInfo();

@@ -21,6 +21,11 @@ public class HeadLineExecution {
     public HeadLineExecution() {
     }
 
+    public HeadLineExecution(HeadLineStateEnum stateEnum) {
+        this.state = stateEnum.getState();
+        this.info = stateEnum.getInfo();
+    }
+
     public HeadLineExecution(HeadLineStateEnum stateEnum, HeadLine headLine) {
         this.state = stateEnum.getState();
         this.info = stateEnum.getInfo();

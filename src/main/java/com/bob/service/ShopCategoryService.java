@@ -1,5 +1,6 @@
 package com.bob.service;
 
+import com.bob.dto.ImageHolder;
 import com.bob.dto.ShopCategoryExecution;
 import com.bob.entity.ShopCategory;
 
@@ -9,7 +10,7 @@ import com.bob.entity.ShopCategory;
 * 条件查询 listShopCategoryByCondition
 * */
 public interface ShopCategoryService {
-    ShopCategoryExecution insertShopCategory(ShopCategory shopCategory);
+    ShopCategoryExecution insertShopCategory(ShopCategory shopCategory, ImageHolder imageHolder);
 
     ShopCategoryExecution deleteShopCategoryById(int shopCategoryId);
 

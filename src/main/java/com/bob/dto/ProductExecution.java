@@ -21,6 +21,11 @@ public class ProductExecution {
     public ProductExecution() {
     }
 
+    public ProductExecution(ProductStateEnum stateEnum) {
+        this.state =stateEnum.getState();
+        this.info = stateEnum.getInfo();
+    }
+
     public ProductExecution(ProductStateEnum stateEnum, Product product) {
         this.state = stateEnum.getState();
         this.info = stateEnum.getInfo();

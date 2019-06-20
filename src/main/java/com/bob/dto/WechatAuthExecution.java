@@ -16,6 +16,11 @@ public class WechatAuthExecution {
     public WechatAuthExecution() {
     }
 
+    public WechatAuthExecution(WechatAuthStateEnum stateEnum) {
+        this.state = stateEnum.getState();
+        this.info = stateEnum.getInfo();
+    }
+
     public WechatAuthExecution(WechatAuthStateEnum stateEnum, WechatAuth wechatAuth) {
         this.state = stateEnum.getState();
         this.info = stateEnum.getInfo();

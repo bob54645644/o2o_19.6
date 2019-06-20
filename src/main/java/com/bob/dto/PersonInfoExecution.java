@@ -16,6 +16,11 @@ public class PersonInfoExecution {
     public PersonInfoExecution() {
     }
 
+    public PersonInfoExecution(PersonInfoStateEnum stateEnum) {
+        this.state = stateEnum.getState();
+        this.info = stateEnum.getInfo();
+    }
+
     public PersonInfoExecution(PersonInfoStateEnum stateEnum, PersonInfo personInfo) {
         this.state = stateEnum.getState();
         this.info = stateEnum.getInfo();

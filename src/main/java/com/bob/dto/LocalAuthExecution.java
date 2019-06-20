@@ -16,6 +16,11 @@ public class LocalAuthExecution {
     public LocalAuthExecution() {
     }
 
+    public LocalAuthExecution(LocalAuthStateEnum stateEnum) {
+        this.state = stateEnum.getState();
+        this.info = stateEnum.getInfo();
+    }
+
     public LocalAuthExecution(LocalAuthStateEnum stateEnum, LocalAuth localAuth) {
         this.state = stateEnum.getState();
         this.info = stateEnum.getInfo();

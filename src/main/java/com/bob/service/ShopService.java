@@ -1,5 +1,6 @@
 package com.bob.service;
 
+import com.bob.dto.ImageHolder;
 import com.bob.dto.ShopExecution;
 import com.bob.entity.Shop;
 
@@ -11,6 +12,9 @@ import com.bob.entity.Shop;
 * 条件查询计数 countShopByCondition
 * */
 public interface ShopService {
-    ShopExecution insertShop(Shop shop);
-    ShopExecution updateShop(Shop shop)
+    ShopExecution insertShop(Shop shop, ImageHolder imageHolder);
+    ShopExecution updateShop(Shop shop,ImageHolder imageHolder);
+
+    ShopExecution getShopById(int shopId);
+    ShopExecution listShopByCondition(Shop shop,int pageIndex,int pageSize);
 }
